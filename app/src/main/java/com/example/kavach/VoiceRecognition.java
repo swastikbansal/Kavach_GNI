@@ -10,3 +10,4 @@ public class VoiceRecognition extends Activity {
         setContentView(R.layout.activity_lock_screen);
     }
 }
+
