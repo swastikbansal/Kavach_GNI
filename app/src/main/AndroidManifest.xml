@@ -4,20 +4,29 @@
 
     <!-- ______________________ Requesting for Permissions ______________________________ -->
     <!-- MIC -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- SMS -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- SMS -->
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Storage -->
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" /> <!-- Contacts -->
+        android:maxSdkVersion="32" />
+    <!-- Contacts -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" /> <!-- Camera -->
-    <uses-permission android:name="android.permission.CAMERA" /> <!-- Location Permission -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <!-- Camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Location Permission -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- _______________________ Adding uses-feature tag for hardware _______________________ -->
+    <!-- Call Permission -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- _______________________ Adding uses-feature tag for hardware _______________________ -->
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
@@ -61,7 +70,8 @@
             android:name=".LockScreen"
             android:exported="false"
             android:label="Lock Screen"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity
             android:name=".VoiceRecognition"
             android:exported="false"
@@ -90,6 +100,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <service
+            android:name=".WakeWordService"
+            android:foregroundServiceType="location" />
     </application>
 
 </manifest>
