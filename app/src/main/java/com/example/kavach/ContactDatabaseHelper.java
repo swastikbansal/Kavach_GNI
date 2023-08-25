@@ -42,6 +42,7 @@ public class ContactDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
     // Add a new contact to the database
     public void addContact(ContactInfo contact) {
         SQLiteDatabase db = this.getWritableDatabase();
