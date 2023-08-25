@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements LocationHandler.L
         Toast.makeText(this, "App is Still Work in Progress.", Toast.LENGTH_SHORT).show();
 
 
-
         dailogBoxEmptyContacts();
 
         //Finding Button by ID
@@ -193,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements LocationHandler.L
 
 
 
-
+    //Emergency Contacts Activity
     public void EmergencyContactsActivity(View view){
         //Checking for contact permission
         Intent contactIntent = new Intent(this,EmergencyContacts.class);

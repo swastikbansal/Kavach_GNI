@@ -17,10 +17,8 @@ public class KavachwidgetConfigureActivity extends Activity {
             int mAppWidgetId = extras.getInt(
                     AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
 
-            // Perform any necessary initialization for the widget here
-            // For example, you can save default preferences or perform other setup tasks
 
-            // Update the widget immediately after initialization
+            // Updated the widget immediately after initialization
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
             Kavachwidget.updateAppWidget(this, appWidgetManager, mAppWidgetId);
 
@@ -30,7 +28,6 @@ public class KavachwidgetConfigureActivity extends Activity {
             setResult(RESULT_OK, resultValue);
             finish();
         } else {
-            // If no extras, finish the activity without doing anything
             finish();
         }
     }

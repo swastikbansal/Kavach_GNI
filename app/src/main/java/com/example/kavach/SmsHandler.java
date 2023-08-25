@@ -12,18 +12,22 @@ import androidx.core.app.ActivityCompat;
 import java.util.List;
 
 public class SmsHandler {
-
+    //Function for sending SMS
     public static void sendSMS(Context context, String message, String permission) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED) {
+
+                //Getting all the contacts
                 ContactDatabaseHelper dbHelper = new ContactDatabaseHelper(context);
                 List<ContactInfo> allContacts = dbHelper.getAllContacts();
 
+                //Checking for empty contacts
                 if (allContacts.isEmpty()) {
                     Toast.makeText(context, "No Emergency Contacts Selected", Toast.LENGTH_SHORT).show();
                 } else {
                     for (ContactInfo contact : allContacts) {
                         try {
+                            //Sending SOS msg
                             SmsManager smsManager = SmsManager.getDefault();
                             smsManager.sendTextMessage(contact.getNumber(), null, message, null, null);
                             Toast.makeText(context, "Emergency SMS sent!", Toast.LENGTH_SHORT).show();
