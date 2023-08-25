@@ -27,8 +27,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kavach_gni.R;
-
 import java.util.List;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -58,7 +56,7 @@ public class EmergencyContacts extends AppCompatActivity {
         //Hooks
         icon = findViewById(R.id.imageView4);
         head = findViewById(R.id.textView5);
-        gifimg = findViewById(R.id.gifImageView);
+//        gifimg = findViewById(R.id.gifImageView);
 
         //Setting Animation
         icon.setAnimation(titleAnimation);
