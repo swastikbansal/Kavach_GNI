@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -54,7 +55,11 @@ public class MainActivity extends AppCompatActivity implements LocationHandler.L
         super.onCreate(savedInstanceState);
 
         Toast.makeText(this, "App is Still Work in Progress.", Toast.LENGTH_SHORT).show();
-        
+
+
+
+        dailogBoxEmptyContacts();
+
         //Finding Button by ID
         SOSButton = findViewById(R.id.SOSButton);
         EmergencyContactsButton = findViewById(R.id.EmergencyContactButton);
@@ -215,6 +220,22 @@ public class MainActivity extends AppCompatActivity implements LocationHandler.L
         locationHandler.getCurrentLocation();
     }
 
+    public void dailogBoxEmptyContacts(){
+        //If user has no contacts added
+        ContactDatabaseHelper dbHelper = new ContactDatabaseHelper(MainActivity.this);
+        List<ContactInfo> allContacts = dbHelper.getAllContacts();
+
+        if (allContacts.isEmpty()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Emergency Contacts")
+                    .setMessage("Please add Emergency Contacts before sending an SOS")
+                    .setPositiveButton("ok", (dialog, which) -> {
+                        Intent contactIntent = new Intent(MainActivity.this,EmergencyContacts.class);
+                        startActivity(contactIntent);
+                    })
+                    .create().show();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
