@@ -182,24 +182,10 @@ public class MainActivity extends AppCompatActivity implements LocationHandler.L
 
     //------------------------------------- Function For Opening Activities -------------------------------------------
 
-    //Emergency Contacts Activity
-    public void EmergencyContactsActivity(View view){
-        //Checking for contact permission
-        Intent contactIntent = new Intent(this,EmergencyContacts.class);
-        startActivity(contactIntent);
-    }
 
-    //Voice Recognition Activity
-    public void VoiceRecogntionActivity(View view){
-        Intent contactIntent = new Intent(this,VoiceRecognition.class);
-        startActivity(contactIntent);
-    }
 
-    //Lock Screen Activity
-    public void LockScreenActivity(View view){
-        Intent contactIntent = new Intent(this,LockScreen.class);
-        startActivity(contactIntent);
-    }
+
+
 
     //This Function will be executed when the button is pressed to send the SOS to selected emergency contacts
     public void SOS(View view){
@@ -224,17 +210,7 @@ public class MainActivity extends AppCompatActivity implements LocationHandler.L
                 || super.onSupportNavigateUp();
     }
 
-    @Override
-    public void onLocationChanged(double latitude, double longitude) {
 
-    }
 
-    // Implementing LocationListener interface method to get the current location
-    @Override
-    public void onLocationChanged(Location location) {
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
-
-    }
 
 }
